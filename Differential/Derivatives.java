@@ -9,10 +9,14 @@ package Differential;
 
 public class Derivatives {
 
-public static void powerFunction(String function, String variable)
+public static void powerFunction(String functionIn, String variable)
 {
-  
-   System.out.println("The derivative of function " + function + " with respect to " + variable + " is");
+   String function = functionIn.replace(variable,"x");
+   String pow = function.substring((function.indexOf("x^")+2));
+   double power = Double.parseDouble(pow);
+   System.out.println("" + (power +1) );
+
+   System.out.println("The derivative of function " + functionIn + " with respect to " + variable + " is " + power);
 
    
 }
@@ -20,14 +24,11 @@ public static void powerFunction(String function, String variable)
 
 public static void main(String[] args)
  {
-    powerFunction("x^5", "x");
-    /* 
+    powerFunction("5t^24", "t");
+   
    
 
  
-    System.out.println 
-    scan.nextLine()
-    System.out.println("Math is Cool" + Math.PI); */
 
 }
     }
