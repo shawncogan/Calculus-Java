@@ -9,10 +9,28 @@ import java.util.Arrays;
 
 public class Derivatives {
 
+  public static boolean constCheck(String str, String from)
+  {
+    boolean isConst = false;
+    String[] num = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "."};
+    String check;
+    for(int n = 0; n < 12; n++)
+    {
+      check = str.substring((str.indexOf(from)+n), (str.indexOf(from)+n));
+      isConst = Arrays.stream(num).anyMatch(check::equals);
+      System.out.println(isConst);
+      if(!isConst)
+      {
+        break;
+      }
+    }
+    return isConst;
+  }
+
 public static void powerFunction(String functionIn, String variable)
 {
-   String[] num = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
-   System.out.println(Arrays.stream(num).anyMatch("5"::equals));
+   
+   
    String function = functionIn.replace(variable,"x");
    String pow = function.substring((function.indexOf("x^")+2));
    if (Double.parseDouble(pow)>0){
@@ -33,7 +51,7 @@ public static void powerFunction(String functionIn, String variable)
 public static void main(String[] args)
  {
     powerFunction("5t^24", "t");
-   
+   System.out.println(constCheck("512", "5"));
    
 
  
